@@ -6,8 +6,14 @@ import { BrowserRouter } from "react-router-dom";
 import { renderRoutes } from "react-router-config";
 import routes from "../share/routes";
 
+import { Provider } from "react-redux";
+import store from "./sreateStore";
+
 ReactDOM.hydrate(
-    <BrowserRouter>{renderRoutes(routes)}</BrowserRouter>,
+    <Provider store={store}>
+        <BrowserRouter>{renderRoutes(routes)}</BrowserRouter>
+    </Provider>
+    ,
     document.getElementById("root")
 );
 
